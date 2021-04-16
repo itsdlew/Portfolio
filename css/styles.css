@@ -1,0 +1,220 @@
+:root {
+  --primary-color: darkgreen;
+  --link:darkblue;
+  --hover:lightblue;
+  --active:red;
+  --visited:black;
+  --background-color: tan;
+  --button-font: white;
+  --bottom-border: rgba(0,0,0,0.3);
+  --grid-border: grey;
+  --medium-size: 50px;
+  --full-size: 100%;
+  --small-size: 20px;
+}
+* {
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+body {
+    background-color: var(--background-color);
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    color: var(--primary-color);
+    font-size: 12px;
+    line-height: 15px;
+}
+header {
+    display: flex;
+    align-items: center;
+}
+header img {
+    display: block;
+    width: var(--medium-size);
+    height: var(--medium-size);
+}
+header nav {
+    width: var(--full-size);
+}
+nav ul {
+    display: flex;
+    width: var(--full-size);
+    justify-content: flex-end;
+    list-style-type: none;
+}
+nav ul li a {
+    margin: 0 10px;
+}
+main {
+    display: flex;
+    justify-content: center;
+    margin: var(--medium-size) auto;
+}
+h1 {
+    font-weight: bold;
+    line-height: 24px;
+}
+a {
+    color: var(--link);
+}
+a:hover {
+    color: var(--hover);
+}
+a:active {
+    color: var(--active);
+}
+a:visited {
+    color: var(--visited);
+}
+.button, button {
+    cursor: pointer;
+    background-color:var(--primary-color);
+    transition: opacity 0.25s;
+    display:block;
+    margin: var(--small-size) auto;
+    font-size: var(--small-size);
+    border-radius: 5px;
+    border: none;
+    /* takes the font from the outer container */
+    font-family: inherit;
+    /* style button */
+    color: var(--button-color);
+    text-decoration: none;
+    padding: 10px;
+    width: 200px;
+    /* width of the border, type, color */
+    border-bottom: 2px solid var(--bottom-border);
+}
+button:hover, .button:hover {
+    opacity: 0.5;
+}
+.page-footer {
+    clear: both;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.page-footer p {
+    margin: 0 0 10px 0;
+}
+.profile_portrait {
+    width: 250px;
+    margin-right: 40px;
+}
+.profile {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+}
+.profile_portrait {
+    float: left;
+    width: 250px;
+    margin-right: 40px;
+    border-radius: 50%;
+}
+@supports not (display:grid){
+  .grid-item {
+      display: inline-block;
+      border: 1px solid var(--grid-border);
+      padding: var(--small-size);
+      width: 30%;
+      margin: 10px;
+  }
+}
+@supports (display:grid) {
+    .grid-container {
+       display: grid;
+       grid-template-columns: 1fr;
+       grid-template-rows: 1fr 1fr;
+       grid-gap: var(--small-size);
+       margin: 0 var(--medium-size);;
+  }
+
+  .grid_item:last-child{
+    grid-column: auto/auto;
+    grid-row: auto/auto;
+  }
+  .grid-item{
+      border: 1px solid var(--grid-border);
+      padding: var(--small-size);
+      width: auto;
+      margin: 0;
+  }
+}
+form{
+  display: block;
+}
+.about-main{
+  display: block;
+}
+.about-main p{
+text-align: center;
+  margin-bottom: var(--small-size);
+}
+.about-main table{
+  margin: 0 auto;
+  width: 80%
+}
+.about-main table td{
+  text-align: center;
+}
+address{
+  margin-top: var(--small-size);
+}
+.social-media img{
+  width: 30px;
+  height: 30px;
+}
+
+h1{
+  font-size: 12px;
+}
+
+.button, button {
+  /* overwrites browser defaults */
+  /* resets the border */
+  }
+@media all and (min-width: 550px){
+h1{
+  font-size: 22px;
+}
+  .grid-container{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media all and (min-width:750px){
+  .grid-container{
+  grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+svg {
+    -webkit-animation-name: spinner;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 6s;
+    animation-name: spinner;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 6s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    max-width: 100vw;
+    max-height: 300px;
+}
+
+@keyframes spinner {
+    from {
+        -moz-transform: rotateX(0deg);
+        -ms-transform: rotateX(0deg);
+        transform: rotateX(0deg);
+    }
+    to {
+        -moz-transform: rotateX(-360deg);
+        -ms-transform: rotateX(-360deg);
+        transform: rotateX(-360deg);
+    }
+}
